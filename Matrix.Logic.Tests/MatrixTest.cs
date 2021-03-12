@@ -7,17 +7,39 @@ namespace Matrix.Logic.Tests
         [Fact]
         public static void Determinant_SingleElementMatrix_ReturnsElementValue()
         {
-            var testData = new int[][][]
+            var testData = new[]
             {
-                new int[][] { new int[] { 1 } },
-                new int[][] { new int[] { 5 } },
+                new[] { new[] { 1 } },
+                new[] { new[] { 5 } },
             };
-            var expected = new int[]
+            var expected = new[]
             {
                 1,
                 5,
             };
 
+            RunTest(expected, testData);
+        }
+
+        [Fact]
+        public static void Determinant_2x2Matrix_ReturnsCorrectDeterminant()
+        {
+            var testData = new[]
+            {
+                new[] { new[] { 1, 2 }, new[] { 3, 4 } },
+                new[] { new[] { 1, 3 }, new[] { 2, 5 } },
+            };
+            var expected = new[]
+            {
+                -2,
+                -1,
+            };
+
+            RunTest(expected, testData);
+        }
+
+        private static void RunTest(int[] expected, int[][][] testData)
+        {
             for (var index = 0; index < expected.Length; index++)
             {
                 Assert.Equal(expected[index], Matrix.Determinant(testData[index]));
