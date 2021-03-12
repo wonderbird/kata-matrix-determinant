@@ -4,7 +4,7 @@ namespace Matrix.Logic
     {
         public static int Determinant(int[][] matrix)
         {
-            return 0;
+            return matrix[0][0];
         }
     }
 }
