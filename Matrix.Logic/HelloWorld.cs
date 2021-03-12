@@ -1,6 +1,6 @@
 using System;
 
-namespace DotnetStarter.Logic
+namespace Matrix.Logic
 {
     public class HelloWorld
     {

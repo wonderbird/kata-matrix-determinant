@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace DotnetStarter.Logic.Tests
+namespace Matrix.Logic.Tests
 {
     public class HelloWorldTest
     {
