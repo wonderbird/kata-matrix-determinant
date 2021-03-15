@@ -1,26 +1,42 @@
+using System.Collections.Generic;
+
 namespace Matrix.Logic
 {
-    public class Matrix
+    public static class Matrix
     {
         public static int Determinant(int[][] matrix)
         {
-            if (matrix.Length > 1)
+            if (matrix.Length == 1)
             {
-                return matrix[0][0] * Determinant(SubMatrix(0, matrix)) - matrix[0][1] * Determinant(SubMatrix(1, matrix));
+                return matrix[0][0];
             }
-            return matrix[0][0];
+
+            var determinant = 0;
+            var sign = 1;
+
+            for (var i = 0; i < matrix.Length; i++)
+            {
+                determinant += sign * matrix[0][i] * Determinant(SubMatrix(i, matrix));
+                sign *= -1;
+            }
+
+            return determinant;
+
         }
 
-        private static int[][] SubMatrix(int columnToRemove, int[][] matrix)
+        private static int[][] SubMatrix(int columnToRemove, IReadOnlyList<int[]> matrix)
         {
-            var subMatrix = new int[matrix.Length - 1][];
-            for (var row = 1; row < matrix.Length; row++)
+            var subMatrix = new int[matrix.Count - 1][];
+            for (var row = 1; row < matrix.Count; row++)
             {
-                subMatrix[row - 1] = new int[matrix.Length - 1];
-                for (var targetColumn = 0; targetColumn < matrix.Length - 1; targetColumn++)
+                subMatrix[row - 1] = new int[matrix.Count - 1];
+                for (var column = 0; column < columnToRemove; column++)
                 {
-                    var originalColumn = (targetColumn < columnToRemove) ? targetColumn : targetColumn + 1; 
-                    subMatrix[row - 1][targetColumn] = matrix[row][originalColumn];
+                    subMatrix[row - 1][column] = matrix[row][column];
+                }
+                for (var column = columnToRemove + 1; column < matrix.Count; column++)
+                {
+                    subMatrix[row - 1][column - 1] = matrix[row][column];
                 }
             }
             return subMatrix;

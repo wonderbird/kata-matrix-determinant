@@ -38,6 +38,21 @@ namespace Matrix.Logic.Tests
             RunTest(expected, testData);
         }
 
+        [Fact]
+        public static void Determinant_3x3Matrix_ReturnsCorrectDeterminant()
+        {
+            var testData = new[]
+            {
+                new[] { new[] { 2, 5, 3 }, new[] { 1, -2, -1 }, new[] { 1, 3, 4 } },
+            };
+            var expected = new[]
+            {
+                -20
+            };
+
+            RunTest(expected, testData);
+        }
+
         private static void RunTest(int[] expected, int[][][] testData)
         {
             for (var index = 0; index < expected.Length; index++)
