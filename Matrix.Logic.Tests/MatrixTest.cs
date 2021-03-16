@@ -38,6 +38,12 @@ namespace Matrix.Logic.Tests
             RunTest(expected, testData);
         }
 
+        // https://matrix.reshish.com/de/detCalculation.php
+        /*
+2  5  3
+1 -2 -1
+1  3  4
+         */
         [Fact]
         public static void Determinant_3x3Matrix_ReturnsCorrectDeterminant()
         {
