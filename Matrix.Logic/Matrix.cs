@@ -6,6 +6,9 @@ namespace Matrix.Logic
     {
         public static int Determinant(int[][] matrix)
         {
+            Console.WriteLine("Input:");
+            matrix.Write();
+
             if (matrix.Length == 1)
             {
                 return matrix[0][0];
@@ -16,6 +19,18 @@ namespace Matrix.Logic
             var result = MultiplyDiagonal(matrix, reducedMatrix);
 
             return (int)Math.Round(result);
+        }
+
+        public static void Write<T>(this T[][] matrix)
+        {
+            foreach (var row in matrix)
+            {
+                foreach (var column in row)
+                {
+                    Console.Write($"{column} ");
+                }
+                Console.WriteLine();
+            }
         }
 
         private static double[][] CloneToDoubleMatrix(int[][] matrix)
@@ -44,6 +59,9 @@ namespace Matrix.Logic
                                                             reducedMatrix[sourceLine][column] / divider * factor;
                     }
                 }
+
+                Console.WriteLine("Matrix after reduction step:");
+                reducedMatrix.Write();
             }
         }
 

@@ -81,6 +81,38 @@ namespace Matrix.Logic.Tests
 
             RunTest(expected, testData);
         }
+        
+        // https://matrix.reshish.com/de/detCalculation.php
+        /*
+2 4 5 3 1 2
+2 4 7 5 3 2
+1 1 0 2 3 1
+1 3 9 0 3 2
+1 1 2 2 4 1
+0 0 4 1 2 3
+         */
+        [Fact]
+        public static void Determinant_6x6Matrix_ReturnsCorrectDeterminant()
+        {
+            var testData = new[]
+            {
+                new[]
+                {
+                    new [] { 2, 4, 5, 3, 1, 2 },
+                    new [] { 2, 4, 7, 5, 3, 2 },
+                    new [] { 1, 1, 0, 2, 3, 1 },
+                    new [] { 1, 3, 9, 0, 3, 2 },
+                    new [] { 1, 1, 2, 2, 4, 1 },
+                    new [] { 0, 0, 4, 1, 2, 3 },
+                }
+            };
+            var expected = new[]
+            {
+                88
+            };
+
+            RunTest(expected, testData);
+        }
 
         // https://matrix.reshish.com/de/detCalculation.php
         /*
