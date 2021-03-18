@@ -92,7 +92,7 @@ namespace Matrix.Logic.Tests
 0 0 4 1 2 3
          */
         [Fact]
-        public static void Determinant_6x6Matrix_ReturnsCorrectDeterminant()
+        public static void Determinant_Codewars6x6Matrix_ReturnsCorrectDeterminant()
         {
             var testData = new[]
             {
@@ -109,6 +109,44 @@ namespace Matrix.Logic.Tests
             var expected = new[]
             {
                 88
+            };
+
+            RunTest(expected, testData);
+        }
+        
+        // https://matrix.reshish.com/de/detCalculation.php
+        /*
+7 -1 4 1 -1 8 6 -8 9
+-5 3 10 -1 -1 4 2 -7 0
+2 7 10 8 10 -6 -2 -6 -10
+-2 -2 2 2 -10 9 -10 3 10
+-1 9 0 7 -4 -8 5 10 -5
+-2 4 1 -8 -2 3 10 8 -4
+10 10 -1 0 -8 -5 8 -3 5
+-4 4 3 -9 -1 7 4 -8 -6
+-10 6 0 8 -8 10 9 -10 0
+         */
+        [Fact]
+        public static void Determinant_Codewars9x9Matrix_ReturnsCorrectDeterminant()
+        {
+            var testData = new[]
+            {
+                new[]
+                {
+                    new[] { 7, -1, 4, 1, -1, 8, 6, -8, 9 },
+                    new[] { -5, 3, 10, -1, -1, 4, 2, -7, 0 },
+                    new[] { 2, 7, 10, 8, 10, -6, -2, -6, -10 },
+                    new[] { -2, -2, 2, 2, -10, 9, -10, 3, 10 },
+                    new[] { -1, 9, 0, 7, -4, -8, 5, 10, -5 },
+                    new[] { -2, 4, 1, -8, -2, 3, 10, 8, -4 },
+                    new[] { 10, 10, -1, 0, -8, -5, 8, -3, 5 },
+                    new[] { -4, 4, 3, -9, -1, 7, 4, -8, -6 },
+                    new[] { -10, 6, 0, 8, -8, 10, 9, -10, 0 },
+                }
+            };
+            var expected = new[]
+            {
+                -2114540878
             };
 
             RunTest(expected, testData);
